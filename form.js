@@ -261,6 +261,54 @@
     onChange();
   })();
 
+    // ---------- Dynamik "Kaution -> Ratenzahlung" ----------
+  (function setupKautionRatenzahlung() {
+    const select = form.querySelector('select[name="kaution_bezahlart"]');
+    if (!select) return;
+
+    // Referenz auf die Zeile des Selects
+    const selectRow = select.closest('.form-group');
+
+    const ensureRateField = () => {
+      let wrap = form.querySelector('#kaution_rate_wrap');
+      if (!wrap) {
+        wrap = document.createElement('div');
+        wrap.id = 'kaution_rate_wrap';
+        wrap.className = 'form-group';
+
+        const lab = document.createElement('label');
+        lab.textContent = 'Die Höhe der monatlich zu zahlenden Rate beträgt (EUR):';
+        wrap.appendChild(lab);
+
+        const inp = document.createElement('input');
+        inp.type = 'text';
+        inp.name = 'kaution_rate_monat';
+        wrap.appendChild(inp);
+
+        // direkt NACH der Select-Zeile einsetzen
+        selectRow.parentNode.insertBefore(wrap, selectRow.nextSibling);
+      }
+    };
+
+    const removeRateField = () => {
+      document.querySelector('#kaution_rate_wrap')?.remove();
+    };
+
+    const onChange = () => {
+      if (select.value === 'Ratenzahlung') {
+        ensureRateField();
+      } else {
+        removeRateField();
+      }
+    };
+
+    select.addEventListener('change', onChange);
+
+    // Initialzustand
+    onChange();
+  })();
+
+
   // ---------- Speichern (Anzeige + LocalStorage) ----------
   document.getElementById('save-btn')?.addEventListener('click', () => {
     const fd = new FormData(form);
@@ -299,6 +347,8 @@
     try { localStorage.removeItem('abnahme_form_data'); } catch (e) { }
     // Dynamisches Feld nach Reset entfernen
     document.querySelector('#maengel_dynamic_wrap')?.remove();
+    document.querySelector('#kaution_rate_wrap')?.remove();
+
   });
 
   // ---------- Laden (falls vorhanden) ----------
@@ -335,6 +385,29 @@
         const ta = form.querySelector('textarea[name="maengel_liste"]');
         if (ta && typeof data['maengel_liste'] === 'string') ta.value = data['maengel_liste'];
       }
+
+            // Falls "Ratenzahlung" gespeichert war, dynamisches Feld für Monatsrate sicherstellen + Wert setzen
+      const selKaution = form.querySelector('select[name="kaution_bezahlart"]');
+      if (selKaution && selKaution.value === 'Ratenzahlung') {
+        const selectRowK = selKaution.closest('.form-group');
+        let wrapK = form.querySelector('#kaution_rate_wrap');
+        if (!wrapK) {
+          wrapK = document.createElement('div');
+          wrapK.id = 'kaution_rate_wrap';
+          wrapK.className = 'form-group';
+          const labK = document.createElement('label');
+          labK.textContent = 'Die Höhe der monatlich zu zahlenden Rate beträgt (EUR):';
+          wrapK.appendChild(labK);
+          const inpK = document.createElement('input');
+          inpK.type = 'text';
+          inpK.name = 'kaution_rate_monat';
+          wrapK.appendChild(inpK);
+          selectRowK.parentNode.insertBefore(wrapK, selectRowK.nextSibling);
+        }
+        const inpK = form.querySelector('input[name="kaution_rate_monat"]');
+        if (inpK && typeof data['kaution_rate_monat'] === 'string') inpK.value = data['kaution_rate_monat'];
+      }
+
     } catch (e) { }
   })();
 
@@ -563,6 +636,14 @@
             }
           }
         });
+                // Zusatzzeile für Kaution bei Ratenzahlung
+        if (section.title === 'Kaution') {
+          const bezArt = asStr(data['kaution_bezahlart']);
+          const rate = asStr(data['kaution_rate_monat']);
+          if (bezArt === 'Ratenzahlung' && rate) {
+            rows.push(['Die Höhe der monatlich zu zahlenden Rate beträgt (EUR):', rate]);
+          }
+        }
 
         if (!rows.length) return;
 

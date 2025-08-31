@@ -505,8 +505,8 @@ window.form_sections = [
   {
     "title": "Kaution",
     "fields": [
-      {"label": "Die zu hinterlegende Kaution beträgt (€): ", "name": "kaution_summe", "type": "text"},
-      {"label": "Die Kaution wurde hinterlegt in Form einer/s", "name": "kaution_bezahlart", "type": "select",
+      {"label": "Die zu hinterlegende Kaution beträgt (EUR): ", "name": "kaution_summe", "type": "text"},
+      {"label": "Die Kaution wurde / wird hinterlegt in Form einer/s", "name": "kaution_bezahlart", "type": "select",
         "options": ["Überweisung", "Ratenzahlung", "Jobcenter", "Barzahlung"]
       },
     ]
