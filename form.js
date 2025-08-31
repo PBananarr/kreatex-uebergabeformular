@@ -458,6 +458,26 @@
         cursorY -= h + 6;
       };
 
+      // 1) Funktion zum Zeichnen eines zentrierten Blocktitels (wie im Browser)
+      const drawH1 = (t) => {
+        const h = 28;
+        ensureSpace(h + 6);
+        page.drawRectangle({
+          x: MARGIN, y: cursorY - h,
+          width: PAGE_W - 2 * MARGIN, height: h,
+          color: COLOR_SECTION_BG
+        });
+
+        //dünne linke Farbmarke – optional
+        // page.drawRectangle({ x: MARGIN, y: cursorY - h, width: 4, height: h, color: COLOR_PRIMARY });
+
+        const fs = 14;
+        const tw = textW(t, fs, true);
+        drawText(t, MARGIN + ((PAGE_W - 2 * MARGIN) - tw) / 2, cursorY - 18, fs, COLOR_PRIMARY_DARK, true);
+        cursorY -= h + 8;
+      };
+
+
       const drawKVTable = (rows) => {
         if (!rows.length) return;
         const tableX = MARGIN, tableW = PAGE_W - 2 * MARGIN;
@@ -489,6 +509,10 @@
 
       // form_sections -> Tabellen
       window.form_sections.forEach(section => {
+        if (section.type === 'heading') {  // <-- NEU
+          drawH1(section.title);
+          return;
+        }
         const rows = [];
         const isMaengel = section.title === 'Mängelregelung';
         let skip = false;

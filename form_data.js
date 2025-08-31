@@ -109,6 +109,8 @@ window.form_sections = [
     ]
   },
 
+  { type: 'heading', title: 'Folgende Ausstattung ist vorhanden' },
+
   {
     "title": "Ausstattung - Bad",
     "fields":
