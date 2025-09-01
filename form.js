@@ -1,7 +1,7 @@
 (function () {
   const sections = Array.isArray(window.form_sections) ? window.form_sections : [];
   const root = document.getElementById('sections-root');
-  const form = document.getElementById('abnahme-form');
+  const form = document.getElementById('uebergabe-form');
   const out = document.getElementById('submitted');
 
   // ---------- Hilfen ----------
