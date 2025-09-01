@@ -1,6 +1,6 @@
 {
   "name": "Wohnungsübergabeprotokoll",
-  "short_name": "Abnahme",
+  "short_name": "Übergabeformular",
   "start_url": ".",
   "scope": ".",
   "display": "standalone",
