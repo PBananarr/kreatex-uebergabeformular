@@ -5,13 +5,14 @@ window.form_sections = [
     "fields": [
       { "label": "Datum", "name": "datum", "type": "date" },
       { "label": "zur Wohnung (Nr., Etage, Objekt)", "name": "wohnung_nr_etage_objekt", "type": "text" },
-      { "label": "Straße, Hausnummer", "name": "straße_hausnummer", "type": "text" },
+      { "label": "Straße, Hausnummer", "name": "strasse_hausnummer", "type": "text" },
       { "label": "Postleitzahl, Ort", "name": "plz_ort", "type": "text" },
       { "label": "Übergebender (Vermieter)", "name": "uebergebender", "type": "text" },
       { "label": "Übernehmender (Mieter)", "name": "uebernehmender", "type": "text" }
     ]
   },
 
+  /*
   {
     "title": "Schlüsselausgabe",
     "fields": [
@@ -19,6 +20,56 @@ window.form_sections = [
       { "label": "Haus-/Wohnungsschlüssel Nr.", "name": "haus_schluessel_nr", "type": "text" },
       { "label": "Briefkastenschlüssel (Anzahl)", "name": "brief_schluessel", "type": "number" },
       { "label": "Zimmerschlüssel (Anzahl)", "name": "zimmer_schluessel", "type": "number" }
+    ]
+  },
+  */
+  {
+    "title": "Der Mieter hat folgende Schlüssel erhalten",
+    "options": [
+      {
+        "label": "Haus-/Wohnungsschlüssel",
+        "name": "hausschluessel",
+        "type": "multi",
+        "subfields": [
+          {"label": "Anzahl", "name": "anzahl_hausschluessel", "type": "number"},
+          {"label": "Haus-/Wohnungsschlüssel Nr", "name": "hausschluessel_nummer", "type": "text"}
+        ]
+      },
+      {
+        "label": "Briefkastenschlüssel",
+        "name": "briefkastenschluessel",
+        "type": "multi",
+        "subfields": [
+          {"label": "Anzahl", "name": "anzahl_briefkastenschluessel", "type": "number"}
+        ]
+      },
+      {
+        "label": "Zimmerschlüssel",
+        "name": "zimmerschluessel",
+        "type": "multi",
+        "subfields": [
+          {"label": "Anzahl", "name": "anzahl_zimmerschluessel", "type": "number"},
+          {"label": "Anmerkungen", "name": "zimmerschluessel_anmerkungen", "type": "text"}
+        ]
+      },
+      {
+        "label": "Kellerschlüssel",
+        "name": "kellerschluessel",
+        "type": "multi",
+        "subfields": [
+          {"label": "Anzahl", "name": "anzahl_kellerschluessel", "type": "number"},
+          {"label": "Anmerkungen", "name": "kellerschluessel_anmerkungen", "type": "text"}
+        ]
+      },
+      {
+        "label": "Garagenschlüssel",
+        "name": "garagenschluessel",
+        "type": "multi",
+        "subfields": [
+          {"label": "Anzahl", "name": "anzahl_garagenschluessel", "type": "number"},
+          {"label": "Anmerkungen", "name": "garagenschluessel_anmerkungen", "type": "text"}
+        ]
+      },
     ]
   },
 

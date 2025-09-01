@@ -648,7 +648,7 @@
         if (!rows.length) return;
 
         const introMap = {
-          'Schlüsselausgabe': 'Der Mieter hat folgende Schlüssel erhalten:',
+          //'Schlüsselausgabe': 'Der Mieter hat folgende Schlüssel erhalten:',
           'Zählerstände': 'Nachfolgende Zählerstände wurden bei der Wohnungsübergabe von beiden Parteien abgelesen.\nDie Anmeldung bei der Energieversorgung (Strom) erfolgt durch den Vermieter.',
         };
         const introRows = introMap[section.title] ? [['', introMap[section.title]]] : [];
