@@ -454,6 +454,16 @@
       const fontRegular = await pdf.embedFont(StandardFonts.Helvetica);
       const fontBold = await pdf.embedFont(StandardFonts.HelveticaBold);
 
+      // Logo einbetten (optional, wenn Datei vorhanden)
+      let logoImg = null;
+      try {
+        const res = await fetch('./img/logo-test.png'); // gleicher Pfad wie im Projekt
+        const bytes = await res.arrayBuffer();
+        logoImg = await pdf.embedPng(bytes);            // oder embedJpg(...) falls JPG
+      } catch (e) {
+        console.warn('Logo konnte nicht geladen werden:', e);
+      }
+
       // Seite + Cursor
       let page = pdf.addPage([PAGE_W, PAGE_H]);
       let cursorY = PAGE_H - MARGIN;
@@ -500,6 +510,22 @@
       const drawHeader = () => {
         // farbige Linie oben
         page.drawRectangle({ x: 0, y: PAGE_H - 6, width: PAGE_W, height: 6, color: COLOR_PRIMARY });
+
+        // Logo links (falls vorhanden)
+        let headerBlockH = 28; // Mindesthöhe des Headers
+        if (logoImg) {
+          const LOGO_H = 20; // Höhe des Logos (anpassen bei Bedarf)
+          const scale = LOGO_H / logoImg.height;
+          const LOGO_W = logoImg.width * scale;
+          page.drawImage(logoImg, {
+            x: MARGIN,
+            y: PAGE_H - MARGIN - LOGO_H - 6, // leicht nach unten versetzt
+            width: LOGO_W,
+            height: LOGO_H
+          });
+          headerBlockH = Math.max(headerBlockH, LOGO_H + 10);
+        }
+
         // Titel
         const title = 'Wohnungsübergabeprotokoll', tSize = 18, tW = textW(title, tSize, true);
         drawText(title, PAGE_W - MARGIN - tW, PAGE_H - MARGIN - 10, tSize, COLOR_PRIMARY_DARK, true);
