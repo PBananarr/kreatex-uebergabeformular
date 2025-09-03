@@ -1,4 +1,4 @@
-const CACHE_NAME = 'übergabe-cache-v3.0.2.';
+const CACHE_NAME = 'übergabe-cache-v3.0.3.';
 const ASSETS = [
   './',
   './index.html',
@@ -8,7 +8,7 @@ const ASSETS = [
   './manifest.json',
   './icons/icon-192.png',
   './icons/icon-512.png',
-  './img/logo.png',
+  './img/logo-test.png',
   './vendor/pdf-lib.min.js',
   './fonts/DejaVuSans.ttf'
 ];
