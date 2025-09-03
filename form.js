@@ -261,7 +261,7 @@
     onChange();
   })();
 
-    // ---------- Dynamik "Kaution -> Ratenzahlung" ----------
+  // ---------- Dynamik "Kaution -> Ratenzahlung" ----------
   (function setupKautionRatenzahlung() {
     const select = form.querySelector('select[name="kaution_bezahlart"]');
     if (!select) return;
@@ -386,7 +386,7 @@
         if (ta && typeof data['maengel_liste'] === 'string') ta.value = data['maengel_liste'];
       }
 
-            // Falls "Ratenzahlung" gespeichert war, dynamisches Feld für Monatsrate sicherstellen + Wert setzen
+      // Falls "Ratenzahlung" gespeichert war, dynamisches Feld für Monatsrate sicherstellen + Wert setzen
       const selKaution = form.querySelector('select[name="kaution_bezahlart"]');
       if (selKaution && selKaution.value === 'Ratenzahlung') {
         const selectRowK = selKaution.closest('.form-group');
@@ -510,6 +510,22 @@
       };
       drawHeader();
 
+      // --- Einstellungen für H1-Abstand & bedingten Umbruch
+      const EXTRA_HEADING_GAP = 18;          // zusätzlicher Abstand VOR der H1
+      const HEADING_BOX_H = 28;              // Höhe deiner H1-Box
+      const LOWER_QUARTER = PAGE_H * 0.25;   // Schwellwert "unteres Viertel"
+
+      // Falls Cursor nahe Seitenende: neue Seite + Header
+      const forcePageBreakIfLow = (threshold = LOWER_QUARTER) => {
+        const remaining = cursorY - MARGIN; // Restplatz bis Seitenende
+        if (remaining < threshold) {
+          page = pdf.addPage([PAGE_W, PAGE_H]);
+          cursorY = PAGE_H - MARGIN;
+          drawHeader();
+          cursorY -= 16;
+        }
+      };
+
       // Tabellenhelpers
       const CELL_PAD = 6, FONT_SIZE = 10, SECTION_HEADER_H = 28;
       const measureRowH = (lab, val) => {
@@ -531,24 +547,32 @@
         cursorY -= h + 6;
       };
 
-      // 1) Funktion zum Zeichnen eines zentrierten Blocktitels (wie im Browser)
       const drawH1 = (t) => {
-        const h = 28;
-        ensureSpace(h + 6);
+        // 1) Wenn wir im unteren Seitenviertel sind -> neue Seite
+        forcePageBreakIfLow();
+
+        // 2) Sicherstellen, dass genug Platz für Gap + Box vorhanden ist
+        const need = EXTRA_HEADING_GAP + HEADING_BOX_H + 6;
+        ensureSpace(need);
+
+        // 3) Zusätzlichen Abstand VOR der H1 einfügen
+        cursorY -= EXTRA_HEADING_GAP;
+
+        // 4) H1-Box zeichnen (wie bisher)
+        const h = HEADING_BOX_H;
         page.drawRectangle({
           x: MARGIN, y: cursorY - h,
           width: PAGE_W - 2 * MARGIN, height: h,
           color: COLOR_SECTION_BG
         });
 
-        //dünne linke Farbmarke – optional
-        // page.drawRectangle({ x: MARGIN, y: cursorY - h, width: 4, height: h, color: COLOR_PRIMARY });
-
         const fs = 14;
         const tw = textW(t, fs, true);
         drawText(t, MARGIN + ((PAGE_W - 2 * MARGIN) - tw) / 2, cursorY - 18, fs, COLOR_PRIMARY_DARK, true);
+
         cursorY -= h + 8;
       };
+
 
 
       const drawKVTable = (rows) => {
@@ -636,7 +660,7 @@
             }
           }
         });
-                // Zusatzzeile für Kaution bei Ratenzahlung
+        // Zusatzzeile für Kaution bei Ratenzahlung
         if (section.title === 'Kaution') {
           const bezArt = asStr(data['kaution_bezahlart']);
           const rate = asStr(data['kaution_rate_monat']);
@@ -733,6 +757,16 @@
       console.error('PDF-Fehler:', err);
       alert('PDF-Erstellung fehlgeschlagen. Siehe Konsole für Details.');
     }
+
+    if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+      navigator.serviceWorker.controller.postMessage('getVersion');
+      navigator.serviceWorker.addEventListener('message', e => {
+        if (e.data?.type === 'version') {
+          document.getElementById('version-info').textContent = 'Version: ' + e.data.version;
+        }
+      });
+    }
+
   });
 
 })();

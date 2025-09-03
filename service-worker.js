@@ -1,4 +1,4 @@
-const CACHE_NAME = 'übergabe-cache-v2.2';
+const CACHE_NAME = 'übergabe-cache-v3.0.0.';
 const ASSETS = [
   './',
   './index.html',
@@ -12,6 +12,12 @@ const ASSETS = [
   './vendor/pdf-lib.min.js',
   './fonts/DejaVuSans.ttf'
 ];
+
+self.addEventListener('message', event => {
+  if (event.data === 'getVersion') {
+    event.source.postMessage({ type: 'version', version: CACHE_NAME });
+  }
+});
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();
@@ -60,4 +66,3 @@ self.addEventListener('fetch', (event) => {
     }
   })());
 });
-
