@@ -573,8 +573,6 @@
         cursorY -= h + 8;
       };
 
-
-
       const drawKVTable = (rows) => {
         if (!rows.length) return;
         const tableX = MARGIN, tableW = PAGE_W - 2 * MARGIN;
@@ -757,16 +755,15 @@
       console.error('PDF-Fehler:', err);
       alert('PDF-Erstellung fehlgeschlagen. Siehe Konsole für Details.');
     }
-
-    if (navigator.serviceWorker && navigator.serviceWorker.controller) {
-      navigator.serviceWorker.controller.postMessage('getVersion');
-      navigator.serviceWorker.addEventListener('message', e => {
-        if (e.data?.type === 'version') {
-          document.getElementById('version-info').textContent = 'Version: ' + e.data.version;
-        }
-      });
-    }
-
   });
+
+  if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+    navigator.serviceWorker.controller.postMessage('getVersion');
+    navigator.serviceWorker.addEventListener('message', e => {
+      if (e.data?.type === 'version') {
+        document.getElementById('version-info').textContent = 'Version: ' + e.data.version;
+      }
+    });
+  }
 
 })();
