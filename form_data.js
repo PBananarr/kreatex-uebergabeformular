@@ -187,7 +187,7 @@ window.form_sections = [
           "name": "badewanne",
           "type": "multi",
           "subfields": [
-            { "label": "Vorhanden", "name": "badewanne", "type": "checkbox", "checked": true },
+            { "label": "Vorhanden", "name": "badewanne_check", "type": "checkbox", "checked": true },
             { "label": "Mangel", "name": "badewanne_maengel", "type": "text" }
           ]
         },
@@ -196,7 +196,7 @@ window.form_sections = [
           "name": "duschkabine",
           "type": "multi",
           "subfields": [
-            { "label": "Vorhanden", "name": "duschkabine", "type": "checkbox", "checked": true },
+            { "label": "Vorhanden", "name": "duschkabine_check", "type": "checkbox", "checked": true },
             { "label": "Mangel", "name": "duschkabine_maengel", "type": "text" }
           ]
         },
@@ -205,7 +205,7 @@ window.form_sections = [
           "name": "waschbecken",
           "type": "multi",
           "subfields": [
-            { "label": "Vorhanden", "name": "waschbecken", "type": "checkbox", "checked": true },
+            { "label": "Vorhanden", "name": "waschbecken_check", "type": "checkbox", "checked": true },
             { "label": "Mangel", "name": "waschbecken_maengel", "type": "text" }
           ]
         },
@@ -214,7 +214,7 @@ window.form_sections = [
           "name": "wc",
           "type": "multi",
           "subfields": [
-            { "label": "Vorhanden", "name": "wc", "type": "checkbox", "checked": true },
+            { "label": "Vorhanden", "name": "wc_check", "type": "checkbox", "checked": true },
             { "label": "Mangel", "name": "wc_maengel", "type": "text" }
           ]
         },
@@ -223,7 +223,7 @@ window.form_sections = [
           "name": "gaeste_wc",
           "type": "multi",
           "subfields": [
-            { "label": "Vorhanden", "name": "gaeste_wc", "type": "checkbox", "checked": true },
+            { "label": "Vorhanden", "name": "gaeste_wc_check", "type": "checkbox", "checked": true },
             { "label": "Mangel", "name": "gaeste_wc_maengel", "type": "text" }
           ]
         },
@@ -232,7 +232,7 @@ window.form_sections = [
           "name": "ablage",
           "type": "multi",
           "subfields": [
-            { "label": "Vorhanden", "name": "ablage", "type": "checkbox", "checked": true },
+            { "label": "Vorhanden", "name": "ablage_check", "type": "checkbox", "checked": true },
             { "label": "Mangel", "name": "ablage_maengel", "type": "text" }
           ]
         },
@@ -241,7 +241,7 @@ window.form_sections = [
           "name": "doppelglashalter",
           "type": "multi",
           "subfields": [
-            { "label": "Vorhanden", "name": "doppelglashalter", "type": "checkbox", "checked": true },
+            { "label": "Vorhanden", "name": "doppelglashalter_check", "type": "checkbox", "checked": true },
             { "label": "Mangel", "name": "doppelglashalter_maengel", "type": "text" }
           ]
         },
@@ -250,7 +250,7 @@ window.form_sections = [
           "name": "handtuchhalter_doppelt",
           "type": "multi",
           "subfields": [
-            { "label": "Vorhanden", "name": "handtuchhalter_doppelt", "type": "checkbox", "checked": true },
+            { "label": "Vorhanden", "name": "handtuchhalter_doppelt_check", "type": "checkbox", "checked": true },
             { "label": "Mangel", "name": "handtuchhalter_doppelt_maengel", "type": "text" }
           ]
         },
@@ -259,7 +259,7 @@ window.form_sections = [
           "name": "handtuchhalter_einfach",
           "type": "multi",
           "subfields": [
-            { "label": "Vorhanden", "name": "handtuchhalter_einfach", "type": "checkbox", "checked": true },
+            { "label": "Vorhanden", "name": "handtuchhalter_einfach_check", "type": "checkbox", "checked": true },
             { "label": "Mangel", "name": "handtuchhalter_einfach_maengel", "type": "text" }
           ]
         },
@@ -268,7 +268,7 @@ window.form_sections = [
           "name": "papierhalter",
           "type": "multi",
           "subfields": [
-            { "label": "Vorhanden", "name": "papierhalter", "type": "checkbox", "checked": true },
+            { "label": "Vorhanden", "name": "papierhalter_check", "type": "checkbox", "checked": true },
             { "label": "Mangel", "name": "papierhalter_maengel", "type": "text" }
           ]
         },
@@ -277,7 +277,7 @@ window.form_sections = [
           "name": "spiegel",
           "type": "multi",
           "subfields": [
-            { "label": "Vorhanden", "name": "spiegel", "type": "checkbox", "checked": true },
+            { "label": "Vorhanden", "name": "spiegel_check", "type": "checkbox", "checked": true },
             { "label": "Mangel", "name": "spiegel_maengel", "type": "text" }
           ]
         },
@@ -286,7 +286,7 @@ window.form_sections = [
           "name": "waschmaschinenanschluss",
           "type": "multi",
           "subfields": [
-            { "label": "Vorhanden", "name": "waschmaschinenanschluss", "type": "checkbox", "checked": true },
+            { "label": "Vorhanden", "name": "waschmaschinenanschluss_check", "type": "checkbox", "checked": true },
             { "label": "Mangel", "name": "waschmaschinenanschluss_maengel", "type": "text" }
           ]
         },
@@ -295,7 +295,7 @@ window.form_sections = [
           "name": "toilettenbuerste",
           "type": "multi",
           "subfields": [
-            { "label": "Vorhanden", "name": "toilettenbuerste", "type": "checkbox", "checked": true },
+            { "label": "Vorhanden", "name": "toilettenbuerste_check", "type": "checkbox", "checked": true },
             { "label": "Mangel", "name": "toilettenbuerste_maengel", "type": "text" }
           ]
         }
@@ -327,7 +327,7 @@ window.form_sections = [
           "name": "herd",
           "type": "multi",
           "subfields": [
-            { "label": "Vorhanden", "name": "herd", "type": "checkbox", "checked": true },
+            { "label": "Vorhanden", "name": "herd_check", "type": "checkbox", "checked": true },
             { "label": "Mangel", "name": "herd_maengel", "type": "text" }
           ]
         },
@@ -336,7 +336,7 @@ window.form_sections = [
           "name": "kuehlschrank",
           "type": "multi",
           "subfields": [
-            { "label": "Vorhanden", "name": "kuehlschrank", "type": "checkbox", "checked": true },
+            { "label": "Vorhanden", "name": "kuehlschrank_check", "type": "checkbox", "checked": true },
             { "label": "Mangel", "name": "kuehlschrank_maengel", "type": "text" }
           ]
         },
@@ -345,7 +345,7 @@ window.form_sections = [
           "name": "spuele",
           "type": "multi",
           "subfields": [
-            { "label": "Vorhanden", "name": "spuele", "type": "checkbox", "checked": true },
+            { "label": "Vorhanden", "name": "spuele_check", "type": "checkbox", "checked": true },
             { "label": "Mangel", "name": "spuele_maengel", "type": "text" }
           ]
         },
@@ -354,7 +354,7 @@ window.form_sections = [
           "name": "unterschraenke",
           "type": "multi",
           "subfields": [
-            { "label": "Vorhanden", "name": "unterschraenke", "type": "checkbox", "checked": true },
+            { "label": "Vorhanden", "name": "unterschraenke_check", "type": "checkbox", "checked": true },
             { "label": "Mangel", "name": "unterschraenke_maengel", "type": "text" }
           ]
         },
@@ -363,7 +363,7 @@ window.form_sections = [
           "name": "haengeschraenke",
           "type": "multi",
           "subfields": [
-            { "label": "Vorhanden", "name": "haengeschraenke", "type": "checkbox", "checked": true },
+            { "label": "Vorhanden", "name": "haengeschraenke_check", "type": "checkbox", "checked": true },
             { "label": "Mangel", "name": "haengeschraenke_maengel", "type": "text" }
           ]
         },
@@ -372,7 +372,7 @@ window.form_sections = [
           "name": "besteckkasten",
           "type": "multi",
           "subfields": [
-            { "label": "Vorhanden", "name": "besteckkasten", "type": "checkbox", "checked": true },
+            { "label": "Vorhanden", "name": "besteckkasten_check", "type": "checkbox", "checked": true },
             { "label": "Mangel", "name": "besteckkasten_maengel", "type": "text" }
           ]
         },
@@ -381,7 +381,7 @@ window.form_sections = [
           "name": "weitere_ausstattung_kueche",
           "type": "multi",
           "subfields": [
-            { "label": "Vorhanden", "name": "weitere_ausstattung_kueche", "type": "checkbox", "checked": true },
+            { "label": "Vorhanden", "name": "weitere_ausstattung_kueche_check", "type": "checkbox", "checked": true },
             { "label": "Ausstattung", "name": "weitere_ausstattung_kueche_ausstattung", "type": "text" }
           ]
         }
@@ -529,7 +529,6 @@ window.form_sections = [
       }
     ]
   },
-
 
   {
     "title": "Mängelregelung",
