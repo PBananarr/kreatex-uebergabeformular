@@ -1,4 +1,3 @@
-
 window.form_sections = [
   {
     "title": "Allgemeine Daten",
@@ -12,17 +11,6 @@ window.form_sections = [
     ]
   },
 
-  /*
-  {
-    "title": "Schlüsselausgabe",
-    "fields": [
-      { "label": "Haus-/Wohnungsschlüssel (Anzahl)", "name": "haus_schluessel", "type": "number" },
-      { "label": "Haus-/Wohnungsschlüssel Nr.", "name": "haus_schluessel_nr", "type": "text" },
-      { "label": "Briefkastenschlüssel (Anzahl)", "name": "brief_schluessel", "type": "number" },
-      { "label": "Zimmerschlüssel (Anzahl)", "name": "zimmer_schluessel", "type": "number" }
-    ]
-  },
-  */
   {
     "title": "Der Mieter hat folgende Schlüssel erhalten",
     "options": [
@@ -69,7 +57,7 @@ window.form_sections = [
           {"label": "Anzahl", "name": "anzahl_garagenschluessel", "type": "number"},
           {"label": "Anmerkungen", "name": "garagenschluessel_anmerkungen", "type": "text"}
         ]
-      },
+      }
     ]
   },
 
@@ -160,7 +148,7 @@ window.form_sections = [
     ]
   },
 
-  { type: 'heading', title: 'Folgende Ausstattung ist vorhanden' },
+  { "type": "heading", "title": "Folgende Ausstattung ist vorhanden" },
 
   {
     "title": "Ausstattung - Bad",
@@ -170,7 +158,7 @@ window.form_sections = [
           "label": "Art der Böden",
           "name": "boeden_bad",
           "type": "select",
-          "options": ["Venyl", "Laminat", "PVC-Belag", "Fliesen", "Parkett"]
+          "options": ["Vinyl", "Laminat", "PVC-Belag", "Fliesen", "Parkett"]
         },
         {
           "label": "Art der Wände",
@@ -310,7 +298,7 @@ window.form_sections = [
           "label": "Art der Böden",
           "name": "boden_kueche",
           "type": "select",
-          "options": ["Venyl", "Laminat", "PVC-Belag", "Fliesen", "Parkett"]
+          "options": ["Vinyl", "Laminat", "PVC-Belag", "Fliesen", "Parkett"]
         },
         {
           "label": "Art der Wände",
@@ -398,7 +386,7 @@ window.form_sections = [
         "fields": [
           {
             "label": "Art der Böden", "name": "boden_flur", "type": "select",
-            "options": ["Venyl", "Laminat", "PVC-Belag", "Fliesen", "Parkett"]
+            "options": ["Vinyl", "Laminat", "PVC-Belag", "Fliesen", "Parkett"]
           },
           {
             "label": "Art der Wände", "name": "waende_flur", "type": "select",
@@ -414,7 +402,7 @@ window.form_sections = [
         "fields": [
           {
             "label": "Art der Böden", "name": "boden_wohnzimmer", "type": "select",
-            "options": ["Venyl", "Laminat", "PVC-Belag", "Fliesen", "Parkett"]
+            "options": ["Vinyl", "Laminat", "PVC-Belag", "Fliesen", "Parkett"]
           },
           {
             "label": "Art der Wände", "name": "waende_wohnzimmer", "type": "select",
@@ -430,7 +418,7 @@ window.form_sections = [
         "fields": [
           {
             "label": "Art der Böden", "name": "boden_wohnzimmer_kochnische", "type": "select",
-            "options": ["Venyl", "Laminat", "PVC-Belag", "Fliesen", "Parkett"]
+            "options": ["Vinyl", "Laminat", "PVC-Belag", "Fliesen", "Parkett"]
           },
           {
             "label": "Art der Wände", "name": "waende_wohnzimmer_kochnische", "type": "select",
@@ -446,7 +434,7 @@ window.form_sections = [
         "fields": [
           {
             "label": "Art der Böden", "name": "boden_schlafzimmer", "type": "select",
-            "options": ["Venyl", "Laminat", "PVC-Belag", "Fliesen", "Parkett"]
+            "options": ["Vinyl", "Laminat", "PVC-Belag", "Fliesen", "Parkett"]
           },
           {
             "label": "Art der Wände", "name": "waende_schlafzimmer", "type": "select",
@@ -462,7 +450,7 @@ window.form_sections = [
         "fields": [
           {
             "label": "Art der Böden", "name": "boden_kinderzimmer", "type": "select",
-            "options": ["Venyl", "Laminat", "PVC-Belag", "Fliesen", "Parkett"]
+            "options": ["Vinyl", "Laminat", "PVC-Belag", "Fliesen", "Parkett"]
           },
           {
             "label": "Art der Wände", "name": "waende_kinderzimmer", "type": "select",
@@ -478,7 +466,7 @@ window.form_sections = [
         "fields": [
           {
             "label": "Art der Böden", "name": "boden_balkon", "type": "select",
-            "options": ["Venyl", "Laminat", "PVC-Belag", "Fliesen", "Parkett"]
+            "options": ["Vinyl", "Laminat", "PVC-Belag", "Fliesen", "Parkett"]
           },
           {
             "label": "Art der Wände", "name": "waende_balkon", "type": "select",
@@ -494,7 +482,7 @@ window.form_sections = [
         "fields": [
           {
             "label": "Art der Böden", "name": "boden_keller_dachboden", "type": "select",
-            "options": ["Venyl", "Laminat", "PVC-Belag", "Fliesen", "Parkett"]
+            "options": ["Vinyl", "Laminat", "PVC-Belag", "Fliesen", "Parkett"]
           },
           {
             "label": "Art der Wände", "name": "waende_keller_dachboden", "type": "select",
@@ -509,12 +497,10 @@ window.form_sections = [
         "type": "multi",
         "fields": [
           {
-            "label": "Art der Böden", "name": "boden_garage_carport", "type": "text",
-            //"options": ["Venyl", "Laminat", "PVC-Belag", "Fliesen", "Parkett"]
+            "label": "Art der Böden", "name": "boden_garage_carport", "type": "text"
           },
           {
-            "label": "Art der Wände", "name": "waende_garage_carport", "type": "text",
-            //"options": ["Raufaser", "Glattputz", "Rauputz", "Fliesen"]
+            "label": "Art der Wände", "name": "waende_garage_carport", "type": "text"
           },
           { "label": "Anmerkungen", "name": "Anmerkungen_garage_carport", "type": "textarea" }
         ]
@@ -558,7 +544,7 @@ window.form_sections = [
       {"label": "Die zu hinterlegende Kaution beträgt (EUR): ", "name": "kaution_summe", "type": "text"},
       {"label": "Die Kaution wurde / wird hinterlegt in Form einer/s", "name": "kaution_bezahlart", "type": "select",
         "options": ["Überweisung", "Ratenzahlung", "Jobcenter", "Barzahlung"]
-      },
+      }
     ]
   }
 ];

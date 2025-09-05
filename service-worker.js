@@ -1,4 +1,4 @@
-const CACHE_NAME = 'übergabe-cache-v3.1.0.';
+const CACHE_NAME = 'UEF-Version-1.0.0.';
 const ASSETS = [
   './',
   './index.html',
@@ -66,3 +66,9 @@ self.addEventListener('fetch', (event) => {
     }
   })());
 });
+
+
+
+
+
+
