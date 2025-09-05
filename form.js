@@ -438,7 +438,7 @@
       Der Mieter wurde darüber informiert, daß der Keller nicht zum Abstellen feuchteempfindlicher Gegenstände geeignet ist. Eine Haftung durch den Vermieter bei evtl. auftretenden Schäden  ist ausgeschlossen.
 
       Die Wohnungsgeberbescheinigung wurde heute am Tag der Übergabe an den Mietern übergeben. 
-      Bei Verlust und Neuaustellung wird eine Gebühr in Höhe von 25,00 € zzgl. MwSt. fällig.`;
+      Bei Verlust und Neuaustellung wird eine Gebühr in Höhe von 25,00 EUR zzgl. MwSt. fällig.`;
 
       // Form-Daten einsammeln
       const fd = new FormData(form);
