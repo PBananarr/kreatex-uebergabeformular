@@ -1,10 +1,11 @@
-const CACHE_NAME = 'UEF-Version-1.0.0.';
+const CACHE_NAME = 'UEF-Version-1.2.0.';
 const ASSETS = [
   './',
   './index.html',
   './style.css',
   './form.js',
   './form_data.js',
+  './records.js',
   './manifest.json',
   './icons/icon-192.png',
   './icons/icon-512.png',
